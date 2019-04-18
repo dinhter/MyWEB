@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5cad9dd7588d8637b0c955a3"},"idEmployee":"NV1","idDepartment":"NS"}
+{"_id":{"$oid":"5cad9df6def26c37b00d73b4"},"idEmployee":"NV2","idDepartment":"KT"}
+{"_id":{"$oid":"5cad9dfedef26c37b00d73b5"},"idEmployee":"NV3","idDepartment":"PT"}

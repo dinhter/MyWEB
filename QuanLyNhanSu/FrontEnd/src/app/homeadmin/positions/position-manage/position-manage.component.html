@@ -1,0 +1,36 @@
+<form class="emp-form" #employeeForm="ngForm">
+  <br>
+  <h1 class="text-center">
+    <b>Thông tin chức vụ</b>
+  </h1>
+  <br>
+  <div class="input-group mb-5 col-md-4">
+    <input type="text" class="form-control" placeholder="Gõ tên chức vụ...">
+    <div class="input-group-append">
+      <button class="btn btn-danger" type="reset">Đặt lại</button>
+      <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+    </div>
+  </div>
+  <br>
+  <div class="container col-md-6">
+    <form>
+      <!--ID,Tên-->
+      <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-list-ol"></i></span>
+        <input id="IDPosition" type="text" class="form-control mr-5" name="IDPosition" placeholder="Mã số chức vụ" required> 
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-users"></i></span>
+        <input id="namePosition" type="text" class="form-control" name="namePosition" placeholder="Tên chức vụ" required>
+      </div>
+
+
+      <div style="text-align:center;" class="mt-5">
+        <button type="submit" class="btn btn-success mx-5" id="btn-Add-Position">Đăng ký</button>
+        <button type="button" class="btn btn-warning mx-5" id="btn-Edit-Position">Cập nhật</button>
+        <button type="button" class="btn btn-danger mx-5" id="btn-Delete-Position">Xóa</button>
+        <button type="reset" class="btn btn-info mx-5" id="btn-Refresh-Position">Đặt lại</button>
+      </div>
+
+    </form>
+    <br>
+  </div>
+</form>

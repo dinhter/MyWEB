@@ -1,0 +1,98 @@
+<form class="emp-form" autocomplete="off" *ngIf="employeeService.selectedEmployee">
+  <br>
+  <br>
+  <br>
+  <div class="container col-md-6">
+    <form>
+      <!--Tên-->
+      <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-user-circle"></i></span>
+        <input style="margin-left:5px;"class="form-control mr-5" name="nameEmp" #nameEmployee="ngModel"
+          [(ngModel)]="employeeService.selectedEmployee.nameEmp" placeholder="Tên nhân viên" required>
+
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-user"></i></span>
+        <select class="form-control" name="sex" required style="margin-left:5px" #sex="ngModel"
+        [(ngModel)]="employeeService.selectedEmployee.sex">
+          <option value="">--Giới tính--</option>
+          <option value="Nam"><b>Nam</b></option>
+          <option value="Nữ"><b>Nữ</b></option>
+        </select>
+
+      </div>
+      <br>
+
+      <!-- Chức vụ, phòng ban
+      <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-users"></i></span>
+        <select class="form-control mr-5" name="position" style="margin-left:-2px" required>
+          <option value="0">--Chức vụ--</option>
+        </select>
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-sitemap"></i></span>
+        <select class="form-control" name="group" required>
+          <option value="0">--Phòng ban--</option>
+        </select>
+      </div>
+      <br> -->
+
+      <!--Ngày sinh, địa chỉ-->
+      <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-birthday-cake" style="margin-left:3px;"></i></span>
+        <input style="margin-left:5px;" type="date" class="form-control mr-5" name="birth" required #birth="ngModel"
+        [(ngModel)]="employeeService.selectedEmployee.birth">
+        
+        <span class="input-group-addon mr-4  ml-5"><i class="fa fa-home"></i></span>
+        <input  class="form-control" name="address" placeholder="Địa chỉ" style="margin-left:2px" required #address="ngModel"
+        [(ngModel)]="employeeService.selectedEmployee.address">
+      </div>
+      <br>
+
+      <!--SDT,email-->
+      <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-phone"></i></span>
+        <input class="form-control mr-5" name="phone" placeholder="Số điện thoại" style="margin-left:5px"
+          required #phone="ngModel"
+          [(ngModel)]="employeeService.selectedEmployee.phone">
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-envelope"></i></span>
+        <input class="form-control" name="mail" placeholder="Email" style="margin-left:5px" required #mail="ngModel"
+        [(ngModel)]="employeeService.selectedEmployee.mail">
+      </div>
+      <br>
+
+      <!--CMND, Lương-->
+      <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-id-card"></i></span>
+        <input class="form-control mr-5" name="idCard" placeholder="Chứng minh thư" style="margin-left:5px"
+         required #idCard="ngModel"
+          [(ngModel)]="employeeService.selectedEmployee.idCard">
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-signal"></i></span>
+        <input class="form-control" name="salary" placeholder="Lương" style="margin-left:2px" required #salary="ngModel"
+        [(ngModel)]="employeeService.selectedEmployee.salary">
+      </div>
+      <br>
+
+      <!--Password, Check-->
+      <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-lock "></i></span>
+        <input type="password" class="form-control mr-5" name="password" placeholder="Mật khẩu"
+          style="margin-left: 10px" required #birth="ngModel"
+          [(ngModel)]="employeeService.selectedEmployee.birth">
+
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-key " style="margin-right:px"></i></span>
+        <div class="form-control mt-2" style="border-style: hidden;"name="isAdmin" required #isAdmin="ngModel"
+        [(ngModel)]="employeeService.selectedEmployee.isAdmin">
+          <input id="password" type="radio" class="icon-radio" value="Admin"> Admin
+          <input id="password" type="radio" class="icon-radio ml-5" value="User"> User
+        </div>
+      </div>
+
+      <div style="text-align:center;" class="mt-5">
+        <button type="submit" class="btn btn-success mx-5" id="btn-Add-Stack">Đăng ký</button>
+        <button type="reset" class="btn btn-info mx-5" id="btn-Refresh-Stack">Đặt
+          lại</button>
+      </div>
+
+    </form>
+  </div>
+
+  
+</form>

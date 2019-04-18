@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12 my-5">
+    <!--Tab-->
+    <app-nav-tabs></app-nav-tabs>
+
+    <div class="tab-content py-auto px-auto" id="nav-tabContent">
+      <!--Trang chủ-->
+      <div class="tab-pane fade show active mx-auto col-md-10 mt-5" id="nav-home" role="tabpanel"
+        aria-labelledby="nav-home-tab">
+        <app-user-infor></app-user-infor>
+      </div>
+
+      <!--Quản lý nhân viên-->
+      <div class="tab-pane fade mx-3 " id="nav-stack" role="tabpanel" aria-labelledby="nav-stack-tab">
+        <app-employee-manage></app-employee-manage>
+      </div>
+
+      <!--Department-->
+      <div class="tab-pane fade mx-3 " id="nav-department" role="tabpanel" aria-labelledby="nav-department-tab">
+        <app-department-manage></app-department-manage>
+      </div>
+
+      <!--Position-->
+      <div class="tab-pane fade mx-3 " id="nav-position" role="tabpanel" aria-labelledby="nav-position-tab">
+        <app-position-manage></app-position-manage>
+      </div>
+
+    </div>
+  </div>
+</div>

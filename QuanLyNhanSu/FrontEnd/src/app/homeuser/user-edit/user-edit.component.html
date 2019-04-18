@@ -1,0 +1,73 @@
+<h2><b>Cập nhật thông tin nhân viên</b></h2>
+<br>
+<br>
+<div class="container col-md-6">
+  <form>  
+    <!--ID,Tên-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-list-ol"></i></span>
+      <input id="ID" type="text" class="form-control mr-5" name="ID" placeholder="Mã số nhân viên" disabled>
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-user-circle"></i></span>
+      <input id="name" type="text" class="form-control" name="name" placeholder="Tên nhân viên" disabled > 
+    </div>
+
+    <!--Chức vụ, phòng ban-->
+    <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-sitemap"></i></span>
+        <input id="position" type="text" class="form-control mr-5" name="position" placeholder="Chức vụ" disabled>
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-users"></i></span>
+        <input id="group" type="text" class="form-control" name="group" placeholder="Phòng ban" style="margin-left:-7px" disabled>
+    </div>
+
+    <!--Giới tính, ngày sinh-->
+    <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-user"></i></span>
+        <select class="form-control mr-5" style="margin-left:6px" disabled>
+            <option id="sex" name="sex">Nam</option>
+            <option id="sex" name="sex">Nữ</option>
+        </select>
+
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-birthday-cake"></i></span>
+        <input id="birthdate" type="date" class="form-control" name="birthdate">
+    </div>
+    
+    <!--Địa chỉ-->
+    <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-home"></i></span>
+        <input id="address" type="text" class="form-control" name="address" placeholder="Địa chỉ" style="margin-left:2px">
+    </div>
+
+    <!--SDT,email-->
+    <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-phone"></i></span>
+        <input id="phone" type="tel" class="form-control mr-5" name="phone" placeholder="Số điện thoại" style="margin-left:5px">
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-envelope"></i></span>
+        <input id="mail" type="email" class="form-control" name="mail" placeholder="Email" style="margin-left:5px">
+    </div>
+
+    <!--CMND, Lương-->
+    <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-id-card"></i></span>
+        <input id="CMND" type="tel" class="form-control mr-5" name="CMND" placeholder="Chứng minh thư" style="margin-left:5px" disabled>
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-signal"></i></span>
+        <input id="salary" type="email" class="form-control" name="salary" placeholder="Lương" style="margin-left:5px" disabled>
+    </div>
+
+     <!--Password, Check-->
+     <div class="input-group mb-4">
+        <span class="input-group-addon mr-4"><i class="fa fa-lock "></i></span>
+        <input id="password" type="password" class="form-control mr-5" name="password" placeholder="Mật khẩu" style="margin-left: 10px">
+
+        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-key "  style="margin-right:px"></i></span>
+        <div class="form-control mt-2" style="border-style: hidden;">
+        <input id="password" type="radio" class="icon-radio" name="password" disabled> Admin
+        <input id="password" type="radio" class="icon-radio ml-5" name="password" checked disabled> User
+        </div>
+    </div>
+
+    <div style="text-align:center">
+    <button type="button" class="btn btn-warning">Cập nhật</button>
+    </div>
+  </form>
+  <br>
+</div>

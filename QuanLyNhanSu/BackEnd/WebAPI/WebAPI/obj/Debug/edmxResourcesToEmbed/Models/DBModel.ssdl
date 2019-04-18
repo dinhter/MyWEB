@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyPhongBanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Assignment">
+    <Key>
+      <PropertyRef Name="idAssign" />
+    </Key>
+    <Property Name="idAssign" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEmp" Type="int" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="idDep" />
+    </Key>
+    <Property Name="idDep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idAssign" Type="int" />
+    <Property Name="nameDep" Type="varchar" MaxLength="50" />
+    <Property Name="idPos" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="idEmp" />
+    </Key>
+    <Property Name="idEmp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nameEmp" Type="varchar" MaxLength="30" />
+    <Property Name="sex" Type="varchar" MaxLength="10" />
+    <Property Name="birth" Type="date" />
+    <Property Name="address" Type="varchar" MaxLength="20" />
+    <Property Name="phone" Type="varchar" MaxLength="20" />
+    <Property Name="mail" Type="varchar" MaxLength="30" />
+    <Property Name="idCard" Type="int" />
+    <Property Name="salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="password" Type="varchar" MaxLength="20" />
+    <Property Name="isAdmin" Type="bit" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="idPos" />
+    </Key>
+    <Property Name="idPos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="namePos" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Assignment_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="idEmp" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="idEmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Assignment1">
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="0..1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Assignment">
+        <PropertyRef Name="idAssign" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="idAssign" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="idPos" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="idPos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyPhongBanModelStoreContainer">
+    <EntitySet Name="Assignment" EntityType="Self.Assignment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Assignment_Employee" Association="Self.FK_Assignment_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Assignment" EntitySet="Assignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Assignment1" Association="Self.FK_Department_Assignment1">
+      <End Role="Assignment" EntitySet="Assignment" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Position" Association="Self.FK_Department_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
