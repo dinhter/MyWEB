@@ -1,4 +1,0 @@
-{"_id":{"$oid":"5cad9caf588d8637b0c955a1"},"idDepartment":"NS","nameDepartment":"Nhân sự","namePosition":"Thư ký"}
-{"_id":{"$oid":"5cad9d40def26c37b00d73b1"},"idDepartment":"NS","nameDepartment":"Nhân sự","namePosition":"Trưởng phòng"}
-{"_id":{"$oid":"5cad9d59def26c37b00d73b2"},"idDepartment":"KT","nameDepartment":"Kỹ thuật","namePosition":"Bảo trì"}
-{"_id":{"$oid":"5cad9d72def26c37b00d73b3"},"idDepartment":"PT","nameDepartment":"Phát triển","namePosition":"Trưởng phòng"}

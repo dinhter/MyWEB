@@ -13,16 +13,6 @@ export class DepartmentManageComponent implements OnInit {
   constructor(private departmentService : DepartmentService) { }
 
   ngOnInit() {
-    this.resetForm();
-  }
-
-  resetForm(form? :NgForm){
-    if (form != null)
-    form.reset();
-    this.departmentService.selectedDepartment = {
-      idDep: null,
-      nameDep:''
-    }
   }
 
 }

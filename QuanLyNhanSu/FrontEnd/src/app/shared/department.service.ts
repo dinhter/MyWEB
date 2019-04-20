@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Department} from './department.model';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 
 
 @Injectable({
@@ -7,6 +9,9 @@ import { Department} from './department.model';
 })
 export class DepartmentService {
 
-  selectedDepartment : Department;
-  constructor() { }
+  constructor(private http:HttpClient) { }
+  getDepartmentList(){
+    return this.http.get(environment.apiURl+'/Departments').toPromise();  
+  }
+ 
 }

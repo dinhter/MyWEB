@@ -13,11 +13,12 @@ namespace WebAPI.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLPBEntities : DbContext
+    public partial class DBModels : DbContext
     {
-        public QLPBEntities()
-            : base("name=QLPBEntities")
+        public DBModels()
+            : base("name=DBModels")
         {
+            base.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

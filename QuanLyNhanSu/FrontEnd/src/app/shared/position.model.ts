@@ -1,5 +1,4 @@
 export class Position {
-    idEmp: number;
-    idDep: number
+    idPos: number
     namePos: string;
 }
