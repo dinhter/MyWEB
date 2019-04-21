@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class PositionService {
 
   constructor(private http:HttpClient) { }
-
+  PosData: Position[];
   getPostionList(){
     return this.http.get(environment.apiURl+'/Positions').toPromise();  
   }

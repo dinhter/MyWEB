@@ -1,4 +1,4 @@
- <form #form="ngForm" autocomplete="off" *ngIf="ServiceEmp.DataEmp">
+ <form #form="ngForm" autocomplete="off" *ngIf="ServiceAssign.DataAssign">
   <br>
   <br>
   <br>
@@ -8,11 +8,11 @@
       <div class="input-group mb-4">
         <span class="input-group-addon mr-4"><i class="fa fa-user-circle"></i></span>
         <input style="margin-left:5px;" class="form-control mr-5" name="nameEmp" #nameEmp="ngModel"
-          [(ngModel)]="ServiceEmp.DataEmp.nameEmp" placeholder="Tên nhân viên" required>
+          [(ngModel)]="ServiceAssign.DataAssign.nameEmp" placeholder="Tên nhân viên" required>
 
         <span class="input-group-addon mr-4 ml-5"><i class="fa fa-user"></i></span>
         <select class="form-control" name="sex" required style="margin-left:5px" #sex="ngModel"
-        [(ngModel)]="ServiceEmp.DataEmp.sex">
+        [(ngModel)]="ServiceAssign.DataAssign.sex">
           <option value="">--Giới tính--</option>
           <option value="Nam"><b>Nam</b></option>
           <option value="Nữ"><b>Nữ</b></option>
@@ -25,11 +25,11 @@
       <div class="input-group mb-4">
         <span class="input-group-addon mr-4"><i class="fa fa-birthday-cake" style="margin-left:3px;"></i></span>
         <input style="margin-left:5px;" type="date" class="form-control mr-5" name="birth" required #birth="ngModel"
-        [(ngModel)]="ServiceEmp.DataEmp.birth">
+        [(ngModel)]="ServiceAssign.DataAssign.birth">
         
         <span class="input-group-addon mr-4  ml-5"><i class="fa fa-home"></i></span>
         <input  class="form-control" name="address" placeholder="Địa chỉ" style="margin-left:2px" required #address="ngModel"
-        [(ngModel)]="ServiceEmp.DataEmp.address">
+        [(ngModel)]="ServiceAssign.DataAssign.address">
       </div>
       <br>
 
@@ -38,10 +38,10 @@
         <span class="input-group-addon mr-4"><i class="fa fa-phone"></i></span>
         <input class="form-control mr-5" name="phone" placeholder="Số điện thoại" style="margin-left:5px"
           required #phone="ngModel"
-          [(ngModel)]="ServiceEmp.DataEmp.phone">
+          [(ngModel)]="ServiceAssign.DataAssign.phone">
         <span class="input-group-addon mr-4 ml-5"><i class="fa fa-envelope"></i></span>
         <input class="form-control" name="mail" placeholder="Email" style="margin-left:5px" required #mail="ngModel"
-        [(ngModel)]="ServiceEmp.DataEmp.mail">
+        [(ngModel)]="ServiceAssign.DataAssign.mail">
       </div>
       <br>
 
@@ -50,10 +50,10 @@
         <span class="input-group-addon mr-4"><i class="fa fa-id-card"></i></span>
         <input class="form-control mr-5" name="idCard" placeholder="Chứng minh thư" style="margin-left:5px"
          required #idCard="ngModel"
-          [(ngModel)]="ServiceEmp.DataEmp.idCard">
+          [(ngModel)]="ServiceAssign.DataAssign.idCard">
         <span class="input-group-addon mr-4 ml-5"><i class="fa fa-signal"></i></span>
         <input class="form-control" name="salary" placeholder="Lương" style="margin-left:2px" required #salary="ngModel"
-        [(ngModel)]="ServiceEmp.DataEmp.salary">
+        [(ngModel)]="ServiceAssign.DataAssign.salary">
       </div>
       <br>
 
@@ -62,11 +62,11 @@
         <span class="input-group-addon mr-4"><i class="fa fa-lock "></i></span>
         <input type="password" class="form-control mr-5" name="password" placeholder="Mật khẩu"
           style="margin-left: 10px" required #password="ngModel"
-          [(ngModel)]="ServiceEmp.DataEmp.password">
+          [(ngModel)]="ServiceAssign.DataAssign.password">
 
         <span class="input-group-addon mr-4 ml-5"><i class="fa fa-key"></i></span>
         <select class="form-control" name="isAdmin" required style="margin-left:5px" #isAdmin="ngModel"
-        [(ngModel)]="ServiceEmp.DataEmp.isAdmin">
+        [(ngModel)]="ServiceAssign.DataAssign.isAdmin">
           <option value="true"><b>User</b></option>
           <option value="false"><b>Admin</b></option>
         </select>
@@ -90,23 +90,23 @@
           <th>Mã chức vụ</th>
           <th>Tên chức vụ</th>
         <th>
-          <button class="btn btn-info fa fa-plus" (click)="AddOrEditAsignment(null,ServiceEmp.DataEmp.idAssign)"> Phân công</button>
+          <button class="btn btn-info fa fa-plus" (click)="AddOrEditAsignment(null,ServiceAssign.DataAssign.idAssign)"> Phân công</button>
         </th>
       </thead>
       <tbody>
-        <tr *ngIf="ServiceEmp.AssignEmp.length==0">
+        <tr *ngIf="ServiceAssign.DataAssign.length==0">
           <td class="font-italic text-center" colspan="13" style="color:red">
             Không có dữ liệu của nhân viên
           </td>
         </tr>
 
-        <tr *ngFor="let employee of ServiceEmp.AssignEmp;let i=index">
+        <tr *ngFor="let employee of ServiceAssign.DataAssign;let i=index">
           <td>{{department.idDep}}</td>
           <td>{{department.nameDep}}</td>
           <td>{{position.idPos}}</td>
           <td>{{position.namePos}}</td>
           <td>
-              <a class="btn btn-info fa fa-pencil" (click)="AddOrEditAsignment(i,ServiceEmp.DataEmp.idAssign)"></a>
+              <a class="btn btn-info fa fa-pencil" (click)="AddOrEditAsignment(i,ServiceAssign.DataAssign.idAssign)"></a>
           </td>
         </tr>
       </tbody>

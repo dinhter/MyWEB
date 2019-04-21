@@ -2,26 +2,26 @@
 <hr>
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
   <div class="form-group col-md 8">
-      <div class="input-group mb-4">
-        <span class="input-group-addon mr-4"><i class="fa fa-sitemap"></i></span>
-        <select name="idDep" #idDep="ngModel"
-        [(ngModel)]="DepData.idDep" class="form-control mr-5" style="margin-left:-2px"  required>
-          <option value="0">--Phòng ban--</option>
-          <option *ngFor="let department of DepList" value="{{department.idDep}}">{{department.nameDep}}</option>
-        </select>        
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-sitemap"></i></span>
+      <select name="idDep" #idDep="ngModel" [(ngModel)]="DepData.idDep" class="form-control mr-5"
+        style="margin-left:-2px" required>
+        <option value="0">--Phòng ban--</option>
+        <option *ngFor="let department of DepList" value="{{department.idDep}}">{{department.nameDep}}</option>
+      </select>
 
-        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-users" ></i></span>
-        <select class="form-control" name="idPos" #idPos="ngModel"
-        [(ngModel)]="DepData.idPos" required>
-          <option value="0">--Chức vụ--</option>
-          <option *ngFor="let position of PosList" value="{{position.idPos}}">{{position.namePos}}</option>
-        </select>
-      </div>
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-users"></i></span>
+      <select class="form-control" name="idPos" #idPos="ngModel" [(ngModel)]="DepData.idPos"  required>
+        <option value="0">--Chức vụ--</option>
+        <option *ngFor="let position of PosList" value="{{position.idPos}}">{{position.namePos}}</option>
+      </select>
+    </div>
 
-      <br>
+    <br>
   </div>
   <div class="form-froup">
-      <button type="submit" class="btn btn-success mx-3 fa fa-plus"> Thêm</button>
-      <button type="button" class="btn btn-danger  fa fa-times" [mat-dialog-close]> Đóng</button>
+    <button type="submit" class="btn btn-success mx-3 fa fa-plus"> Thêm</button>
+    <button type="button" class="btn btn-danger  fa fa-times" [mat-dialog-close]> Đóng</button>
   </div>
-</form><!--(change)="updateidPos($event.target)"-->
+</form>
+<!-- [class.is-invalid]="!isValid && DepData.idPos==0" -->

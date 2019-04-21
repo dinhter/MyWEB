@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {EmployeeService} from '../../../shared/employee.service'
 import { MatDialog,MatDialogConfig } from '@angular/material';
 import { AssignmentComponent } from '../assignment/assignment.component';
+import { AssignmentService } from 'src/app/shared/assignment.service';
+import { EmployeeService } from 'src/app/shared/employee.service';
 
 @Component({
   selector: 'app-employee-manage',
@@ -12,7 +13,8 @@ import { AssignmentComponent } from '../assignment/assignment.component';
 })
 export class EmployeeManageComponent implements OnInit {
 
-  constructor(private ServiceEmp :EmployeeService,
+  constructor(private ServiceAssign : AssignmentService,
+    //private ServiceEmp :EmployeeService,
     private dialog : MatDialog) { }
 
   
@@ -25,22 +27,14 @@ export class EmployeeManageComponent implements OnInit {
   resetForm(form? :NgForm){
     if (form = null)
     form.reset();
-    this.ServiceEmp.DataEmp = {
-      idEmp :null,
-      nameEmp :'',
-      sex :'',
-      birth :'',
-      address :'',
-      phone :'',
-      mail:'',
-      idCard :null,
-      salary :null,
-      password :'',
-      isAdmin :true
-    };
-
-    this.ServiceEmp.AssignEmp=[];
+    this.ServiceAssign.DataAssign =
+    {
+      idAssign:null,
+      idEmp:null,
+    }
   }
+
+  
 
   AddOrEditAsignment(assignmentIndex,idAssign){
     const dialogConfig = new MatDialogConfig();
