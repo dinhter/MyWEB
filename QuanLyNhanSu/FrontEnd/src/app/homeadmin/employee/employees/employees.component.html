@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Thông tin nhân viên</h1>
+    <br>
+    <hr>
+    <table class="table table-borderless mb-5">
+      <thead class="thead-light">
+        <th>Mã nhân viên</th>
+        <th>Tên nhân viên</th>
+        <th>Giới tính</th>
+        <th>Ngày sinh</th>
+        <th>Địa chỉ</th>
+        <th>SĐT</th>
+        <th>Mail</th>
+        <th>CMND</th>
+        <th>Lương</th>
+        <th>Mật khẩu</th>
+        <th>Phân quyền</th>
+        <th></th>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let employee of EmpList">
+          <td>{{employee.idEmp}}</td>
+          <td>{{employee.nameEmp}}</td>
+          <td>{{employee.sex}}</td>
+          <td>{{employee.birth}}</td>
+          <td>{{employee.address}}</td>
+          <td>{{employee.phone}}</td>
+          <td>{{employee.mail}}</td>
+          <td>{{employee.idCard}}</td>
+          <td>{{employee.salary}}</td>
+          <td>{{employee.password}}</td>
+          <td>{{employee.isAdmin}}</td>
+          <td>
+            <!-- <button class="btn btn-info mr-3" (click)="editPos(position.idPos)">Sửa</button> -->
+            <button class="btn btn-info mr-3" (click)="EmpEditDialog(employee.idEmp)" [mat-dialog-close]>Sửa</button>
+            <button class="btn btn-danger" (click)="deleteEmp(employee.idEmp,employee.nameEmp)">
+              Xóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <br>
+    <button type="button" class="btn btn-danger my-5" [mat-dialog-close]=""> Đóng</button>
+  </div>
+</div>

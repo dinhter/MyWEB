@@ -14,19 +14,19 @@ namespace WebAPI.Controllers
 {
     public class DepartmentsController : ApiController
     {
-        private DBModels db = new DBModels();
+        private QLPBModel db = new QLPBModel();
 
         // GET: api/Departments
-        public IQueryable<Department> GetDepartments()
+        public IQueryable<Department> GetDepartment()
         {
-            return db.Departments;
+            return db.Department;
         }
 
         // GET: api/Departments/5
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)
         {
-            Department department = db.Departments.Find(id);
+            Department department = db.Department.Find(id);
             if (department == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Departments.Add(department);
+            db.Department.Add(department);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = department.idDep }, department);
@@ -89,13 +89,13 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(Department))]
         public IHttpActionResult DeleteDepartment(int id)
         {
-            Department department = db.Departments.Find(id);
+            Department department = db.Department.Find(id);
             if (department == null)
             {
                 return NotFound();
             }
 
-            db.Departments.Remove(department);
+            db.Department.Remove(department);
             db.SaveChanges();
 
             return Ok(department);
@@ -112,7 +112,7 @@ namespace WebAPI.Controllers
 
         private bool DepartmentExists(int id)
         {
-            return db.Departments.Count(e => e.idDep == id) > 0;
+            return db.Department.Count(e => e.idDep == id) > 0;
         }
     }
 }

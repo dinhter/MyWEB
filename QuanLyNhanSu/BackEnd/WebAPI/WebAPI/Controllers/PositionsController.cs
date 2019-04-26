@@ -14,19 +14,19 @@ namespace WebAPI.Controllers
 {
     public class PositionsController : ApiController
     {
-        private DBModels db = new DBModels();
+        private QLPBModel db = new QLPBModel();
 
         // GET: api/Positions
-        public IQueryable<Position> GetPositions()
+        public IQueryable<Position> GetPosition()
         {
-            return db.Positions;
+            return db.Position;
         }
 
         // GET: api/Positions/5
         [ResponseType(typeof(Position))]
         public IHttpActionResult GetPosition(int id)
         {
-            Position position = db.Positions.Find(id);
+            Position position = db.Position.Find(id);
             if (position == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Positions.Add(position);
+            db.Position.Add(position);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = position.idPos }, position);
@@ -89,13 +89,13 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(Position))]
         public IHttpActionResult DeletePosition(int id)
         {
-            Position position = db.Positions.Find(id);
+            Position position = db.Position.Find(id);
             if (position == null)
             {
                 return NotFound();
             }
 
-            db.Positions.Remove(position);
+            db.Position.Remove(position);
             db.SaveChanges();
 
             return Ok(position);
@@ -112,7 +112,7 @@ namespace WebAPI.Controllers
 
         private bool PositionExists(int id)
         {
-            return db.Positions.Count(e => e.idPos == id) > 0;
+            return db.Position.Count(e => e.idPos == id) > 0;
         }
     }
 }

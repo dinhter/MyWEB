@@ -1,116 +1,72 @@
- <form #form="ngForm" autocomplete="off" *ngIf="ServiceAssign.DataAssign">
+<form [formGroup]="form" autocomplete="off">
   <br>
-  <br>
+  <h1 class="text-center">
+    <b>Thông tin nhân viên</b>
+  </h1>
   <br>
   <div class="container col-md-6">
-    <form>
-      <!--Tên-->
-      <div class="input-group mb-4">
-        <span class="input-group-addon mr-4"><i class="fa fa-user-circle"></i></span>
-        <input style="margin-left:5px;" class="form-control mr-5" name="nameEmp" #nameEmp="ngModel"
-          [(ngModel)]="ServiceAssign.DataAssign.nameEmp" placeholder="Tên nhân viên" required>
+    <!--Tên-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-user-circle"></i></span>
+      <input style="margin-left:5px;" class="form-control mr-5" id="nameEmp" formControlName="nameEmp" placeholder="Tên nhân viên" required>
 
-        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-user"></i></span>
-        <select class="form-control" name="sex" required style="margin-left:5px" #sex="ngModel"
-        [(ngModel)]="ServiceAssign.DataAssign.sex">
-          <option value="">--Giới tính--</option>
-          <option value="Nam"><b>Nam</b></option>
-          <option value="Nữ"><b>Nữ</b></option>
-        </select>
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-user"></i></span>
+      <select class="form-control" id="sex" formControlName="sex" required style="margin-left:5px" >
+        <option value="">--Giới tính--</option>
+        <option value="Nam"><b>Nam</b></option>
+        <option value="Nữ"><b>Nữ</b></option>
+      </select>
 
-      </div>
-      <br>
+    </div>
+    <br>
 
-      <!--Ngày sinh, địa chỉ-->
-      <div class="input-group mb-4">
-        <span class="input-group-addon mr-4"><i class="fa fa-birthday-cake" style="margin-left:3px;"></i></span>
-        <input style="margin-left:5px;" type="date" class="form-control mr-5" name="birth" required #birth="ngModel"
-        [(ngModel)]="ServiceAssign.DataAssign.birth">
-        
-        <span class="input-group-addon mr-4  ml-5"><i class="fa fa-home"></i></span>
-        <input  class="form-control" name="address" placeholder="Địa chỉ" style="margin-left:2px" required #address="ngModel"
-        [(ngModel)]="ServiceAssign.DataAssign.address">
-      </div>
-      <br>
+    <!--Ngày sinh, địa chỉ-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-birthday-cake" style="margin-left:3px;"></i></span>
+      <input style="margin-left:5px;" type="date" class="form-control mr-5" id="birth" formControlName="birth" required>
 
-      <!--SDT,email-->
-      <div class="input-group mb-4">
-        <span class="input-group-addon mr-4"><i class="fa fa-phone"></i></span>
-        <input class="form-control mr-5" name="phone" placeholder="Số điện thoại" style="margin-left:5px"
-          required #phone="ngModel"
-          [(ngModel)]="ServiceAssign.DataAssign.phone">
-        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-envelope"></i></span>
-        <input class="form-control" name="mail" placeholder="Email" style="margin-left:5px" required #mail="ngModel"
-        [(ngModel)]="ServiceAssign.DataAssign.mail">
-      </div>
-      <br>
+      <span class="input-group-addon mr-4  ml-5"><i class="fa fa-home"></i></span>
+      <input class="form-control" id="address" formControlName="address" placeholder="Địa chỉ" style="margin-left:2px" required>
+    </div>
+    <br>
 
-      <!--CMND, Lương-->
-      <div class="input-group mb-4">
-        <span class="input-group-addon mr-4"><i class="fa fa-id-card"></i></span>
-        <input class="form-control mr-5" name="idCard" placeholder="Chứng minh thư" style="margin-left:5px"
-         required #idCard="ngModel"
-          [(ngModel)]="ServiceAssign.DataAssign.idCard">
-        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-signal"></i></span>
-        <input class="form-control" name="salary" placeholder="Lương" style="margin-left:2px" required #salary="ngModel"
-        [(ngModel)]="ServiceAssign.DataAssign.salary">
-      </div>
-      <br>
+    <!--SDT,email-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-phone"></i></span>
+      <input class="form-control mr-5" id="phone" formControlName="phone" placeholder="Số điện thoại" style="margin-left:5px" required
+       >
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-envelope"></i></span>
+      <input class="form-control" id="mail" formControlName="mail" placeholder="Email" style="margin-left:5px" required >
+    </div>
+    <br>
 
-      <!--Password, Check-->
-      <div class="input-group mb-4">
-        <span class="input-group-addon mr-4"><i class="fa fa-lock "></i></span>
-        <input type="password" class="form-control mr-5" name="password" placeholder="Mật khẩu"
-          style="margin-left: 10px" required #password="ngModel"
-          [(ngModel)]="ServiceAssign.DataAssign.password">
+    <!--CMND, Lương-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-id-card"></i></span>
+      <input class="form-control mr-5" id="idCard" formControlName="idCard" placeholder="Chứng minh thư" style="margin-left:5px" required>
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-signal"></i></span>
+      <input class="form-control" id="salary" formControlName="salary" placeholder="Lương" style="margin-left:2px" required >
+    </div>
+    <br>
 
-        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-key"></i></span>
-        <select class="form-control" name="isAdmin" required style="margin-left:5px" #isAdmin="ngModel"
-        [(ngModel)]="ServiceAssign.DataAssign.isAdmin">
-          <option value="true"><b>User</b></option>
-          <option value="false"><b>Admin</b></option>
-        </select>
-      </div>
+    <!--Password, Check-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-lock "></i></span>
+      <input type="password" class="form-control mr-5" id="password" formControlName="password" placeholder="Mật khẩu" style="margin-left: 10px"
+        required >
 
-      <div style="text-align:center;" class="my-5">
-        <button type="submit" class="btn btn-success mx-5 fa fa-plus"> Đăng ký</button>
-        <button type="reset" class="btn btn-info mx-5 fa fa-reset">Đặt
-          lại</button>
-      </div>
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-key"></i></span>
+      <select class="form-control" id="isAdmin" formControlName="isAdmin" required style="margin-left:5px">
+        <option value="">--Phân quyền--</option>
+        <option value="User"><b>User</b></option>
+        <option value="Admin"><b>Admin</b></option>
+      </select>
+    </div>
 
-    </form>
+    <div style="text-align:center;" class="mt-5">
+      <button type="submit" (click)="onSubmit()" class="btn btn-success mx-3">Đăng ký</button>
+      <button type="reset" class="btn btn-info mx-3">Đặt lại</button>
+      <button type="button" (click)="ShowEmpInfo()" class="btn btn-primary mx-3">Thông tin</button>
+    </div>
   </div>
-
-  <div class="container col-md-6">
-  <!--Assignment-->
-  <table class="table table-borderless">
-      <thead class="thead-light">
-          <th>Mã phòng ban</th>
-          <th>Tên phòng ban</th>
-          <th>Mã chức vụ</th>
-          <th>Tên chức vụ</th>
-        <th>
-          <button class="btn btn-info fa fa-plus" (click)="AddOrEditAsignment(null,ServiceAssign.DataAssign.idAssign)"> Phân công</button>
-        </th>
-      </thead>
-      <tbody>
-        <tr *ngIf="ServiceAssign.DataAssign.length==0">
-          <td class="font-italic text-center" colspan="13" style="color:red">
-            Không có dữ liệu của nhân viên
-          </td>
-        </tr>
-
-        <tr *ngFor="let employee of ServiceAssign.DataAssign;let i=index">
-          <td>{{department.idDep}}</td>
-          <td>{{department.nameDep}}</td>
-          <td>{{position.idPos}}</td>
-          <td>{{position.namePos}}</td>
-          <td>
-              <a class="btn btn-info fa fa-pencil" (click)="AddOrEditAsignment(i,ServiceAssign.DataAssign.idAssign)"></a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
 </form>

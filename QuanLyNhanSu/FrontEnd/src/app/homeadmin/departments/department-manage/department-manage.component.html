@@ -1,36 +1,21 @@
-<form class="emp-form" autocomplete="off" >
+<form [formGroup]="form" autocomplete="off" >
   <br>
   <h1 class="text-center">
     <b>Thông tin phòng ban</b>
   </h1>
   <br>
-  <div class="input-group mb-5 col-md-4">
-    <input type="text" class="form-control" placeholder="Gõ tên phòng ban...">
-    <div class="input-group-append">
-      <button class="btn btn-danger" type="reset">Đặt lại</button>
-      <button class="btn btn-primary" type="reset">Tìm kiếm</button>
-    </div>  
-  </div>
   <br>
-  <div class="container col-md-6">
-    <form>
+  <div class="container col-md-4">
       <div class="input-group mb-4">
-        <span class="input-group-addon mr-4"><i class="fa fa-list-ol"></i></span>
-        <input class="form-control" name="idDep" placeholder="Mã số phòng ban" required>
-
-        <span class="input-group-addon mr-4 ml-5"><i class="fa fa-sitemap"></i></span>
-        <input class="form-control" name="nameDep"placeholder="Tên phòng ban" required>
+        <span class="input-group-addon mr-4"><i class="fa fa-sitemap"></i></span>
+        <input class="form-control" id="nameDep" formControlName="nameDep" placeholder="Tên phòng ban" required>
       </div>
-
 
       <div style="text-align:center;" class="mt-5">
-        <button type="button" class="btn btn-success mx-5" id="btn-Add-Department">Đăng ký</button>
-        <button type="button" class="btn btn-warning mx-5" id="btn-Edit-Department">Cập nhật</button>
-        <button type="button" class="btn btn-danger mx-5" id="btn-Delete-Department">Xóa</button>
-        <button type="reset" class="btn btn-info mx-5" id="btn-Refresh-Department" >Đặt lại</button>
+        <button type="submit" (click)="onSubmit()" class="btn btn-success mx-3" >Đăng ký</button>
+        <button type="reset" class="btn btn-info mx-3" >Đặt lại</button>
+        <button type="button" (click)="ShowDepInfo()" class="btn btn-primary mx-3" >Thông tin</button>
       </div>
-
-    </form>
     <br>
   </div>
 </form>

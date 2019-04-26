@@ -1,0 +1,73 @@
+<form [formGroup]="editForm" autocomplete="off">
+  <h2>Điều chỉnh thông tin nhân viên</h2>
+  <hr>
+  <div class="form-group col-md 8">
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4" for="name"><i class="fa fa-users"></i></span>
+      <input type="text" class="form-control" id="idEmp" formControlName="idEmp" placeholder="Mã chức vụ" readonly>
+    </div>
+
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-user-circle"></i></span>
+      <input style="margin-left:5px;" class="form-control mr-5" id="nameEmp" formControlName="nameEmp" placeholder="Tên nhân viên" required>
+
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-user"></i></span>
+      <select class="form-control" id="sex" formControlName="sex" required style="margin-left:5px" >
+        <option value="">--Giới tính--</option>
+        <option value="Nam"><b>Nam</b></option>
+        <option value="Nữ"><b>Nữ</b></option>
+      </select>
+
+    </div>
+    <br>
+
+    <!--Ngày sinh, địa chỉ-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-birthday-cake" style="margin-left:3px;"></i></span>
+      <input style="margin-left:5px;" class="form-control mr-5" id="birth" formControlName="birth" required>
+
+      <span class="input-group-addon mr-4  ml-5"><i class="fa fa-home"></i></span>
+      <input class="form-control" id="address" formControlName="address" placeholder="Địa chỉ" style="margin-left:2px" required>
+    </div>
+    <br>
+
+    <!--SDT,email-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-phone"></i></span>
+      <input class="form-control mr-5" id="phone" formControlName="phone" placeholder="Số điện thoại" style="margin-left:5px" required
+       >
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-envelope"></i></span>
+      <input class="form-control" id="mail" formControlName="mail" placeholder="Email" style="margin-left:5px" required >
+    </div>
+    <br>
+
+    <!--CMND, Lương-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-id-card"></i></span>
+      <input class="form-control mr-5" id="idCard" formControlName="idCard" placeholder="Chứng minh thư" style="margin-left:5px" required>
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-signal"></i></span>
+      <input class="form-control" id="salary" formControlName="salary" placeholder="Lương" style="margin-left:2px" required >
+    </div>
+    <br>
+
+    <!--Password, Check-->
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4"><i class="fa fa-lock "></i></span>
+      <input type="password" class="form-control mr-5" id="password" formControlName="password" placeholder="Mật khẩu" style="margin-left: 10px"
+        required >
+
+      <span class="input-group-addon mr-4 ml-5"><i class="fa fa-key"></i></span>
+      <select class="form-control" id="isAdmin" formControlName="isAdmin" required style="margin-left:5px">
+        <option value="">--Phân quyền--</option>
+        <option value="User"><b>User</b></option>
+        <option value="Admin"><b>Admin</b></option>
+      </select>
+    </div>
+  
+    <br>
+  </div>
+  <div class="form-froup">
+    <button type="submit" (click)="onSubmit()" [mat-dialog-close] class="btn btn-success mx-3">Lưu</button>
+    <button type="button" class="btn btn-danger mx-3" [mat-dialog-close] >Đóng</button>
+  </div>
+  </form>

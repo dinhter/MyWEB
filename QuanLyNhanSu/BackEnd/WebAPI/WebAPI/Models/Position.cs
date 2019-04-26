@@ -17,13 +17,13 @@ namespace WebAPI.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Position()
         {
-            this.Departments = new HashSet<Department>();
+            this.Assignment = new HashSet<Assignment>();
         }
     
         public int idPos { get; set; }
         public string namePos { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Department> Departments { get; set; }
+        public virtual ICollection<Assignment> Assignment { get; set; }
     }
 }

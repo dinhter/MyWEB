@@ -5,9 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule} from '@angular/material';
 import { MatButtonModule, MatCheckboxModule} from '@angular/material';
-import { FormsModule} from '@angular/forms';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule} from "@angular/common/http"
 import { AppComponent } from './app.component';
+import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -24,46 +25,19 @@ import { PositionManageComponent } from './homeadmin/positions/position-manage/p
 import { UserInforComponent } from './homeuser/user-infor/user-infor.component';
 import { UserEditComponent } from './homeuser/user-edit/user-edit.component';
 import { NavTabsUserComponent } from './homeuser/nav-tabs-user/nav-tabs-user.component';
-import { EmployeeService} from './shared/employee.service'
-import { DepartmentService} from './shared/department.service'
-import { PositionService} from './shared/position.service';
-import { EmployeeInforComponent } from './homeadmin/employee/employee-infor/employee-infor.component';
-import { AssignmentComponent } from './homeadmin/employee/assignment/assignment.component';
-import { EmployeeComponent } from './homeadmin/employee/employee.component'
+import { EmployeeService} from './_service/employee.service'
+import { DepartmentService} from './_service/department.service'
+import { PositionService} from './_service/position.service';
+import { AssignmentComponent } from './homeadmin/assignment-employee/assignment/assignment.component';
+import { AssignmentEmployeeComponent } from './homeadmin/assignment-employee/assignment-employee.component';
+import { InforUserComponent } from './homeadmin/infor-user/infor-user.component';
+import { AssignmentListComponent } from './homeadmin/assignment-employee/assignment-list/assignment-list.component'
+import { PositionEditComponent } from './homeadmin/positions/position-edit/position-edit.component';
+import { DepartmentEditComponent } from './homeadmin/departments/department-edit/department-edit.component';
+import { EmployeesComponent } from './homeadmin/employee/employees/employees.component';
+import { EmployeeEditComponent } from './homeadmin/employee/employee-edit/employee-edit.component';
+import { AssignmentService} from './_service/assignment.service';
 
-const appRoutes: Routes = [
-  {
-     path: '',
-     redirectTo:'login',
-     pathMatch:'full'
-  },
-
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-
-  {
-    path: 'contact',
-    component: ContactComponent
-  },
-  
-  {
-     path: 'homeadmin',
-     component: HomeadminComponent
-  },
-
-  {
-    path: 'homeuser',
-    component: HomeuserComponent
- },
-
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,13 +57,19 @@ const appRoutes: Routes = [
     UserInforComponent,
     UserEditComponent,
     NavTabsUserComponent,
-    EmployeeInforComponent,
     AssignmentComponent,
-    EmployeeComponent,
+    AssignmentEmployeeComponent,
+    InforUserComponent,
+    AssignmentListComponent,
+    PositionEditComponent,
+    DepartmentEditComponent,
+    EmployeesComponent,
+    EmployeeEditComponent,
+   
 
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    // RouterModule.forRoot(appRoutes),
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -97,10 +77,12 @@ const appRoutes: Routes = [
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
-  entryComponents:[AssignmentComponent],
-  providers: [EmployeeService,DepartmentService,PositionService],
+  entryComponents:[PositionComponent,DepartmentComponent,DepartmentEditComponent,EmployeesComponent,EmployeeEditComponent,AssignmentComponent,AssignmentListComponent],
+  providers: [EmployeeService,DepartmentService,PositionService,AssignmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

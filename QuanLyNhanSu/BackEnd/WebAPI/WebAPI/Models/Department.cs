@@ -14,12 +14,16 @@ namespace WebAPI.Models
     
     public partial class Department
     {
-        public int idDep { get; set; }
-        public Nullable<int> idAssign { get; set; }
-        public string nameDep { get; set; }
-        public Nullable<int> idPos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Department()
+        {
+            this.Assignment = new HashSet<Assignment>();
+        }
     
-        public virtual Assignment Assignment { get; set; }
-        public virtual Position Position { get; set; }
+        public int idDep { get; set; }
+        public string nameDep { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Assignment> Assignment { get; set; }
     }
 }

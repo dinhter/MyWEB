@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
-import { MatDialog,MatDialogConfig } from '@angular/material';
-import { AssignmentComponent } from '../assignment/assignment.component';
-import { AssignmentService } from 'src/app/shared/assignment.service';
-import { EmployeeService } from 'src/app/shared/employee.service';
+import {EmployeeService} from '../../../_service/employee.service'
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { Employee } from 'src/app/_model/employee.model';
+import { EmployeesComponent } from '../employees/employees.component';
 
 @Component({
   selector: 'app-employee-manage',
@@ -13,38 +14,70 @@ import { EmployeeService } from 'src/app/shared/employee.service';
 })
 export class EmployeeManageComponent implements OnInit {
 
-  constructor(private ServiceAssign : AssignmentService,
-    //private ServiceEmp :EmployeeService,
-    private dialog : MatDialog) { }
+  form: FormGroup;
+  EmpList: Employee[];
+  DataEmp: Employee;
+  submited = false;
 
+  constructor(
+    private ServiceEmp :EmployeeService,
+    private formBuilder : FormBuilder,
+    private toastr : ToastrService,
+    private dialog : MatDialog) { }
+ 
   
   ngOnInit() {
-    this.resetForm();
+    this.form = this.formBuilder.group
+    (
+      {
+          nameEmp: ['',Validators.required],
+          sex: ['',Validators.required],
+          birth: ['',Validators.required],
+          address: ['',Validators.required],
+          phone: ['',Validators.required],
+          mail: ['',Validators.required],
+          idCard: ['',Validators.required],
+          salary: ['',Validators.required],
+          password: ['',Validators.required],
+          isAdmin: ['',Validators.required]
+        }
+    )
+  }
+  save(){
+    this.ServiceEmp.add(this.form.value).subscribe(()=>{
+      console.log(this.form.value);
+      this.form.reset();
+      this.toastr.success('Thêm thành công','Chức vụ');
+    },
+      error =>
+      {
+        console.log(this.form.value);
+        this.toastr.error(`Xảy ra lỗi, vui lòng kiểm tra lại: ${error}`);
+      })
   }
 
 
-
-  resetForm(form? :NgForm){
-    if (form = null)
-    form.reset();
-    this.ServiceAssign.DataAssign =
-    {
-      idAssign:null,
-      idEmp:null,
-    }
+  onSubmit()
+  {
+    this.submited=true;
+    this.save();
+    
   }
 
-  
-
-  AddOrEditAsignment(assignmentIndex,idAssign){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true;
-    dialogConfig.disableClose  = true;
-    dialogConfig.width = "50%";
-    dialogConfig.data = {assignmentIndex,idAssign};
-    this.dialog.open(AssignmentComponent,dialogConfig );
+  getAll():void
+  {
+    this.ServiceEmp.getAllEmployees().subscribe(pos => this.EmpList=pos);
   }
 
+  ShowEmpInfo()
+  {
+      const dialogConfig= new MatDialogConfig();
+      dialogConfig.autoFocus = true;
+      dialogConfig.disableClose = true;
+      dialogConfig.width = "1000px";
+      this.dialog.open(EmployeesComponent);
+      
+  }
   
 }
 

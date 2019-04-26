@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Thông tin phân công chức vụ - phòng ban</h1>
+    <br>
+    <hr>
+    <table class="table table-borderless mb-5">
+      <thead class="thead-light">
+        <th>Mã phân công</th>
+        <th>Mã nhân viên</th>
+        <th>Tên nhân viên</th>
+        <th>Tên phòng ban</th>
+        <th>Tên chức vụ</th>
+        <th></th>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let assignment of AssignList">
+          <td>{{assignment.idAssign}}</td>
+          <td>{{assignment.idEmp}}</td>
+          <td>{{assignment.nameEmp}}</td>
+          <td>{{assignment.idDep}}</td>
+          <td>{{assignment.idPos}}</td>
+          <td>
+            <button class="btn btn-info mr-3" (click)="AssignEditDialog(assignment.idAssign)"
+              [mat-dialog-close]>Sửa</button>
+            <button class="btn btn-danger"
+              (click)="deleteAssign(assignment.idAssign,assignment.idDep,assignment.idPos)">
+              Xóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <br>
+
+  </div>
+</div>

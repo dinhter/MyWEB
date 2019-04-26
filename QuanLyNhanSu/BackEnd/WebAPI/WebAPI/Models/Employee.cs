@@ -17,7 +17,7 @@ namespace WebAPI.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.Assignments = new HashSet<Assignment>();
+            this.Assignment = new HashSet<Assignment>();
         }
     
         public int idEmp { get; set; }
@@ -28,11 +28,11 @@ namespace WebAPI.Models
         public string phone { get; set; }
         public string mail { get; set; }
         public Nullable<int> idCard { get; set; }
-        public Nullable<decimal> salary { get; set; }
+        public string salary { get; set; }
         public string password { get; set; }
-        public Nullable<bool> isAdmin { get; set; }
+        public string isAdmin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Assignment> Assignments { get; set; }
+        public virtual ICollection<Assignment> Assignment { get; set; }
     }
 }

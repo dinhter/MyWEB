@@ -1,0 +1,22 @@
+.fa{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+h3:default{
+    text-align: center;
+}
+  
+  
+.row{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+  
+  
+  
+.input-group{
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -14,19 +14,19 @@ namespace WebAPI.Controllers
 {
     public class EmployeesController : ApiController
     {
-        private DBModels db = new DBModels();
+        private QLPBModel db = new QLPBModel();
 
         // GET: api/Employees
-        public IQueryable<Employee> GetEmployees()
+        public IQueryable<Employee> GetEmployee()
         {
-            return db.Employees;
+            return db.Employee;
         }
 
         // GET: api/Employees/5
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetEmployee(int id)
         {
-            Employee employee = db.Employees.Find(id);
+            Employee employee = db.Employee.Find(id);
             if (employee == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Employees.Add(employee);
+            db.Employee.Add(employee);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = employee.idEmp }, employee);
@@ -89,13 +89,13 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(Employee))]
         public IHttpActionResult DeleteEmployee(int id)
         {
-            Employee employee = db.Employees.Find(id);
+            Employee employee = db.Employee.Find(id);
             if (employee == null)
             {
                 return NotFound();
             }
 
-            db.Employees.Remove(employee);
+            db.Employee.Remove(employee);
             db.SaveChanges();
 
             return Ok(employee);
@@ -112,7 +112,7 @@ namespace WebAPI.Controllers
 
         private bool EmployeeExists(int id)
         {
-            return db.Employees.Count(e => e.idEmp == id) > 0;
+            return db.Employee.Count(e => e.idEmp == id) > 0;
         }
     }
 }

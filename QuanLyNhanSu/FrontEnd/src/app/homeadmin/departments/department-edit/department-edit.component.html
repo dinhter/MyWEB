@@ -1,0 +1,19 @@
+<form [formGroup]="editForm" autocomplete="off">
+  <h2>Điều chỉnh thông tin phòng ban</h2>
+  <hr>
+  <div class="form-group col-md 8">
+    <div class="input-group mb-4">
+      <span class="input-group-addon mr-4" for="name"><i class="fa fa-users"></i></span>
+      <input type="text" class="form-control" id="idDep" formControlName="idDep" readonly>
+  
+      <span class="input-group-addon mr-4 ml-5" for="name"><i class="fa fa-users"></i></span>
+      <input type="text" class="form-control" id="nameDep" formControlName="nameDep" placeholder="Tên phòng ban" required>
+    </div>
+  
+    <br>
+  </div>
+  <div class="form-froup">
+    <button type="submit" (click)="onSubmit()" [mat-dialog-close] class="btn btn-success mx-3">Lưu</button>
+    <button type="button" class="btn btn-danger mx-3" [mat-dialog-close] >Đóng</button>
+  </div>
+  </form>

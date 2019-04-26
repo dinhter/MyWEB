@@ -14,19 +14,19 @@ namespace WebAPI.Controllers
 {
     public class AssignmentsController : ApiController
     {
-        private DBModels db = new DBModels();
+        private QLPBModel db = new QLPBModel();
 
         // GET: api/Assignments
-        public IQueryable<Assignment> GetAssignments()
+        public IQueryable<Assignment> GetAssignment()
         {
-            return db.Assignments;
+            return db.Assignment;
         }
 
         // GET: api/Assignments/5
         [ResponseType(typeof(Assignment))]
         public IHttpActionResult GetAssignment(int id)
         {
-            Assignment assignment = db.Assignments.Find(id);
+            Assignment assignment = db.Assignment.Find(id);
             if (assignment == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Assignments.Add(assignment);
+            db.Assignment.Add(assignment);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = assignment.idAssign }, assignment);
@@ -89,13 +89,13 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(Assignment))]
         public IHttpActionResult DeleteAssignment(int id)
         {
-            Assignment assignment = db.Assignments.Find(id);
+            Assignment assignment = db.Assignment.Find(id);
             if (assignment == null)
             {
                 return NotFound();
             }
 
-            db.Assignments.Remove(assignment);
+            db.Assignment.Remove(assignment);
             db.SaveChanges();
 
             return Ok(assignment);
@@ -112,7 +112,7 @@ namespace WebAPI.Controllers
 
         private bool AssignmentExists(int id)
         {
-            return db.Assignments.Count(e => e.idAssign == id) > 0;
+            return db.Assignment.Count(e => e.idAssign == id) > 0;
         }
     }
 }
